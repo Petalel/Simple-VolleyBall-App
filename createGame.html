@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Game</title>
+    <link rel="stylesheet" type="text/css" href="Volley.css">
+
+</head>
+<body>
+
+    <h1>Create a Game</h1>
+
+    <form id="gameForm">  
+          <h2>Give the name of the Teams</h2>
+        <label for="team1Value">Team 1:</label>
+        <input type="text" id="team1Value" name="team1" required>
+        <br>
+        <label for="team2Value">Team 2:</label>
+        <input type="text" id="team2Value" name="team2" required>
+        <br>
+        <button type="submit">Start the Game</button>
+    </form>
+    
+    <script>
+        var team1Value;
+        var team2Value;
+    
+        document.getElementById('gameForm').addEventListener('submit', function(event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            team1Value = document.getElementById('team1Value').value;
+            team2Value = document.getElementById('team2Value').value;
+    
+            console.log('Team 1:', team1Value);
+            console.log('Team 2:', team2Value); 
+           
+            // Update the text content after values are set
+            document.getElementById("team1Value").textContent = team1Value;
+            document.getElementById("team2Value").textContent = team2Value;
+            
+            localStorage.setItem('team1Value', team1Value);
+            localStorage.setItem('team2Value', team2Value);
+            window.location.href = 'Game.html';
+            
+       });
+       
+        </script>
+    
+</body>
+</html>
+ 

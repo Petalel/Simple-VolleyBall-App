@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>  
+    <link rel="stylesheet" type="text/css" href="Volley.css">
+</head>
+<body>
+
+
+    <h1>The Game Started</h1> 
+    <div id="ServiceBoard">
+        <span id="ServiceTeam"> </span>
+        <span> has the Service</span>
+    </div>
+    <br/>
+    
+  <div  class="SubTitle">
+        <span>Round:</span>
+        <span id="GameRound"></span>
+    </div>
+    <br/>
+   <div id="PointsBoard">
+    <div class="PointsBoard">
+        <span id="team1Value"></span>
+        <span id="PointsTeam1"></span>
+       
+        <button onclick="AddPointTeam1()">+1 Point</button>
+    </div>
+    <br>
+
+    <div class="PointsBoard">
+      <span id="team2Value"></span>
+      <span id="PointsTeam2"></span>
+        <button onclick="AddPointTeam2()">+1 Point</button>
+    </div>
+    <br/></div>
+
+    <div>
+        <span class="SubTitle">Score</span>
+        <table>
+            <tr>
+              <th>Team 1</span>
+              </th>
+              <th>Team 2</th>
+            </tr>
+            <tr>
+              <td><span id="WinsTeam1"></span></td>
+              <td><span id="WinsTeam2"></span></td>
+            </tr>
+          </table>    
+    </div>
+    <br/>
+    <div>
+        <span class="SubTitle">Points</span>
+        <table>
+            <tr>
+              <th>Teams</th>
+              <th>Round 1</th>
+              <th>Round 2</th>
+              <th>Round 3</th>
+              <th>Round 4</th>
+              <th>Round 5</th>
+            </tr>
+            <tr>
+              <td>Team 1</span></td>
+              <td><span id="point0"></span></td>
+              <td><span id="point2"></span></td>
+              <td><span id="point4"></span></td>
+              <td><span id="point6"></span></td>
+              <td><span id="point8"></span></td>
+
+            </tr>
+            <tr>
+                <td>Team 2</span></td>
+                <td><span id="point1"></span></td>
+                <td><span id="point3"></span></td>
+                <td><span id="point5"></span></td>
+                <td><span id="point7"></span></td>
+                <td><span id="point9"></span></td>    
+            </tr>
+          </table>    
+    </div>
+  <br/>
+
+    <div id="countDown">
+      <button onclick="countDown()">timeout</button>
+      <span id="timeout"></span>
+    </div>
+          <script src="Game.js"></script>
+
+    <script>
+       document.getElementById("ServiceTeam").textContent = ServiceTeam;
+       document.getElementById("PointsTeam1").textContent = PointsTeam1;
+       document.getElementById("PointsTeam2").textContent = PointsTeam2;
+       document.getElementById("WinsTeam1").textContent = WinsTeam1;
+       document.getElementById("WinsTeam2").textContent = WinsTeam2;
+       document.getElementById("GameRound").textContent = GameRound;
+       document.getElementById("timeout").innerHTML = seconds;
+       document.getElementById("team1Value").textContent = team1Value;
+       document.getElementById("team2Value").textContent = team2Value;
+
+       
+       for (let i = 0; i <= ArrayWithPoints.length; i++) {
+          var pointsid = "point" + i;   
+          document.getElementById(pointsid).textContent = ArrayWithPoints[i];  
+            }         
+   </script>
+
+   
+</body>
+</html>
