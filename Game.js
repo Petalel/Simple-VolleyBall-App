@@ -6,15 +6,12 @@ let WinsTeam1 = 0;
 let WinsTeam2 = 0;
 var ServiceTeam= "Team 1";
 let GameRound = 1;
-let WinningGamePoints = 5;
+let WinningGamePoints = 25;
 let TimeoutCount = 1;
 var countDownDate = new Date().getTime() + 6000;
 let seconds = "";
 let team1Value = localStorage.getItem('team1Value');
 let team2Value = localStorage.getItem('team2Value');
-
-console.log("team1:", team1Value);
-console.log("team2:", team2Value);
 
 
 function updateGameRound() {
@@ -28,7 +25,6 @@ function updateGameRound() {
 function AddPointsToTheBoard(PointsTeam1, PointsTeam2) {
      ArrayWithPoints.push(PointsTeam1);
      ArrayWithPoints.push(PointsTeam2);
-     console.log("o pinakas",ArrayWithPoints);
 }
 
 function AddWinsTeam1() {
@@ -45,14 +41,7 @@ function AddTimeoutCount(){
     document.getElementById("TimeoutCount").textContent = TimeoutCount;
 }
 function resetTimeoutCount(){
-    console.log("mphke 1.1");
-
     TimeoutCount = 1;
-    console.log("mphke 1.2");
-
-    document.getElementById("TimeoutCount").textContent = TimeoutCount;
-    console.log("mphke 1.3");
-
 }
 
 function AddWinsTeam2() {
@@ -69,7 +58,6 @@ function updateWins() {
 function checkUltimateWinner(){
     if((WinsTeam1>=3 || WinsTeam2>=3)){
        const winner = PointsTeam1 > PointsTeam2 ? "Team 1" : "Team 2";
-       console.log( `${winner} wins the game!`);
        alert( `${winner} wins the game!`);
        resetPoints();
         updatePoints()
@@ -81,34 +69,22 @@ function checkUltimateWinner(){
 }  
 
 function checkWin() {
-    console.log("mphke checkwin ");
 
     let winner;
     if(((PointsTeam1>=WinningGamePoints) || (PointsTeam2>=WinningGamePoints)) && Math.abs(PointsTeam1 - PointsTeam2) >= 2){
       
-      
-        console.log("mphke 1");
 
       
         winner = PointsTeam1 > PointsTeam2 ? "Team 1" : "Team 2";
-        console.log("mphke 2");
 
        resetPoints();
-       console.log("mphke 3");
-
         updateGameRound();
-        console.log("mphke 4");
-
         resetTimeoutCount(); 
-        console.log("mphke 5");
-
         document.getElementById("PointsTeam1").textContent = 0;
         document.getElementById("PointsTeam2").textContent = 0; 
-        console.log("mphke checkwinner winner ");
   
     }
     if(winner==="Team 1"){
-        console.log("mphke winner team1");
         AddWinsTeam1();
     }
     else if(winner==="Team 2"){
@@ -135,27 +111,20 @@ function AddPointTeam2() {
 }
 function updatePoints() {
 
-    console.log("mphke updatepoints 1");
-
     document.getElementById("PointsTeam1").textContent = PointsTeam1;
-    console.log("mphke updatepoints 2");
 
     document.getElementById("PointsTeam2").textContent = PointsTeam2;
-    console.log("mphke updatepoints 3");
 
     if((TimeoutCount===1) && (PointsTeam1===8 || PointsTeam2===8)){
-        console.log("mphke updatepoints 4");
 
            countDown(); 
            AddTimeoutCount();
     }
     if((TimeoutCount===2) && (PointsTeam1===16 || PointsTeam2===16)){
-        console.log("mphke updatepoints 5");
 
         countDown(); 
         AddTimeoutCount();
  }
- console.log("mphke updatepoints 6");
 
     checkWin();
     
